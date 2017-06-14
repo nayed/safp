@@ -1,0 +1,6 @@
+[package]
+name = "safp"
+version = "0.1.0"
+authors = ["Nayed Saïd Ali <nayed.saidali@gmail.com>"]
+
+[dependencies]
