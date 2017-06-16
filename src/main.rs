@@ -7,14 +7,9 @@ use std::process;
 use safp::Config;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
     let mut stderr = std::io::stderr();
 
-    let config = Config::new(&args).unwrap_or_else(|err| {
-        writeln!(&mut stderr, "☹️ Problem parsing arguments: {}", err)
-            .expect("Could not write to stderr");
-        process::exit(1);
-    });
+    let config = Config::new(env::args()).unwrap();
 
     if let Err(e) = safp::run(config) {
         writeln!(&mut stderr, "🔥🔥🔥 Application error: {}", e)
